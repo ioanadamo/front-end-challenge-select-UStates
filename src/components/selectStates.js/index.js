@@ -6,7 +6,22 @@ class SelectStates extends React.Component {
 		this.state = {};
 	}
 	render() {
-		return <p>Soy select</p>;
+		return (
+			<form action="">
+				<label htmlFor="selectState" />
+				<select
+					name="selectState"
+					onClick={this.props.handleSelectState}
+					id="selectState"
+				>
+					{Object.values(this.props.states).map((state, ind) => (
+						<option key={ind} value={state}>
+							{state}
+						</option>
+					))}
+				</select>
+			</form>
+		);
 	}
 }
 
