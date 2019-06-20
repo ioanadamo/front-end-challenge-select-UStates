@@ -7,7 +7,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			filters: {
+			input: {
 				selectedStates: []
 			},
 			states: {}
@@ -21,8 +21,24 @@ class App extends React.Component {
 		fetchStatesData().then(statesData => this.setState({ states: statesData }));
 	};
 
-	handleSelectState = event => {
-		let { value } = event.target;
+	handleInputSearchState = event => {
+		let { value } = event.currentTarget;
+
+		console.log(value);
+		this.setState(prevState => {
+			return {
+				input: {
+					selectedStates: prevState.input.selectedStates
+						.filter(item => item !== value)
+						.concat(value)
+				}
+			};
+		});
+	};
+
+	/* handleSelectState = event => {
+		let { value } = event.currentTarget;
+		console.log(value);
 		this.setState(prevState => {
 			return {
 				filters: {
@@ -32,14 +48,15 @@ class App extends React.Component {
 				}
 			};
 		});
-	};
+	}; */
 
 	render() {
 		return (
 			<React.Fragment>
 				<SelectStates
-					handleSelectState={this.handleSelectState}
+					handleInputSearchState={this.handleInputSearchState}
 					states={this.state.states}
+					selectedStates={this.state.input.selectedStates}
 				/>
 			</React.Fragment>
 		);

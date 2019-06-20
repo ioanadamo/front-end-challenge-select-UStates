@@ -1,26 +1,19 @@
 import React from 'react';
+import './styles.css';
 
 class SelectStates extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
 	render() {
 		return (
-			<form action="">
-				<label htmlFor="selectState" />
-				<select
-					name="selectState"
-					onClick={this.props.handleSelectState}
-					id="selectState"
-				>
+			<React.Fragment>
+				<input type="text" placeholder="State" list="states" multiple />
+				<datalist id="states" multiple>
 					{Object.values(this.props.states).map((state, ind) => (
 						<option key={ind} value={state}>
 							{state}
 						</option>
 					))}
-				</select>
-			</form>
+				</datalist>
+			</React.Fragment>
 		);
 	}
 }
