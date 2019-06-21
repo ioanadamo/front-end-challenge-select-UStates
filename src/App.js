@@ -10,7 +10,8 @@ class App extends React.Component {
 			input: {
 				selectedStates: []
 			},
-			states: {}
+			states: {},
+			isFetching: false
 		};
 	}
 	componentDidMount() {
@@ -18,46 +19,40 @@ class App extends React.Component {
 	}
 
 	getDataStates = () => {
-		fetchStatesData().then(statesData => this.setState({ states: statesData }));
+		fetchStatesData()
+			.then(statesData =>
+				this.setState({ states: statesData, isFetching: true })
+			)
+			.catch(error => console.log(error));
 	};
 
 	handleInputSearchState = event => {
-		let { value } = event.currentTarget;
-
-		console.log(value);
+		let { value } = event.target;
 		this.setState(prevState => {
 			return {
 				input: {
-					selectedStates: prevState.input.selectedStates
+					selectedStates: this.state.input.selectedStates
 						.filter(item => item !== value)
 						.concat(value)
 				}
 			};
 		});
 	};
-
-	/* handleSelectState = event => {
-		let { value } = event.currentTarget;
-		console.log(value);
-		this.setState(prevState => {
-			return {
-				filters: {
-					selectedStates: prevState.filters.selectedStates
-						.filter(item => item !== value)
-						.concat(value)
-				}
-			};
-		});
-	}; */
 
 	render() {
 		return (
 			<React.Fragment>
-				<SelectStates
-					handleInputSearchState={this.handleInputSearchState}
-					states={this.state.states}
-					selectedStates={this.state.input.selectedStates}
-				/>
+				<div className="page__wrapper">
+					{this.state.isFetching ? (
+						<SelectStates
+							handleInputSearchState={this.handleInputSearchState}
+							states={this.state.states}
+							selectedStates={this.state.input.selectedStates}
+						/>
+					) : (
+						<p>Loading data ...</p>
+					)}
+				</div>
 			</React.Fragment>
 		);
 	}
