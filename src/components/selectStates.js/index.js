@@ -6,7 +6,8 @@ class SelectStates extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			inputV: ''
+			inputV: '',
+			classEliminateimg: ''
 		};
 	}
 
@@ -18,6 +19,10 @@ class SelectStates extends React.Component {
 		});
 	};
 
+	handleElimnateSelectedState = e => {
+		return (e.currentTarget.parentElement.className += ' hidden');
+	};
+
 	render() {
 		return (
 			<React.Fragment>
@@ -25,12 +30,16 @@ class SelectStates extends React.Component {
 					<div className="selectedStates--input__section">
 						<ul className="selectedStates--list__states">
 							{this.props.selectedStates.map((state, index) => (
-								<li key={index} className="selectedStates--list__states-state">
+								<li
+									key={index}
+									className={'selectedStates--list__states-state'}
+								>
 									<p className="selectedStates--states-pgph-elem">{state}</p>
 									<img
-										className="selectedStates--eliminate-state-Img"
+										className={'selectedStates--eliminate-state-Img'}
 										src={xImgage}
 										alt="eliminate state"
+										onClick={this.handleElimnateSelectedState}
 									/>
 								</li>
 							))}
