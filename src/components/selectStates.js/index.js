@@ -1,26 +1,38 @@
 import React from 'react';
 import './styles.scss';
 import xImgage from '../../images/xImage.png';
+import dropDownImg from '../../images/triangle-down-512.png';
 
 class SelectStates extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			inputV: '',
-			classEliminateimg: ''
+			classStateList: 'hidden'
 		};
 	}
 
 	handleinp = e => {
 		let { value } = e.currentTarget;
 
-		this.setState({
-			inputV: value
+		this.setState(prevState => {
+			return {
+				inputV: value,
+				classStateList: ''
+			};
 		});
 	};
 
 	handleElimnateSelectedState = e => {
 		return (e.currentTarget.parentElement.className += ' hidden');
+	};
+
+	handleOpenListStates = () => {
+		this.setState(prevState => {
+			return {
+				classStateList: prevState.classStateList === 'hidden' ? '' : 'hidden'
+			};
+		});
 	};
 
 	render() {
@@ -49,9 +61,17 @@ class SelectStates extends React.Component {
 							type="text"
 							placeholder={this.props.selectedStates.length ? '' : 'State'}
 							onChange={this.handleinp}
+							onClick={this.handleOpenListStates}
+						/>
+						<img
+							className="slectedStates--dropDown-arrowImg"
+							src={dropDownImg}
+							alt="drop down traingle"
+							onClick={this.handleOpenListStates}
 						/>
 					</div>
 					<select
+						className={this.state.classStateList + ' selectedStates--select'}
 						multiple
 						onChange={this.props.handleInputSearchState}
 						name=""
@@ -62,7 +82,11 @@ class SelectStates extends React.Component {
 								item.toUpperCase().includes(this.state.inputV.toUpperCase())
 							)
 							.map((state, ind) => (
-								<option key={ind} value={state}>
+								<option
+									className="slectedStates--select--option"
+									key={ind}
+									value={state}
+								>
 									{state}
 								</option>
 							))}

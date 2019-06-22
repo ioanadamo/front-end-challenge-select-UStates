@@ -2,7 +2,18 @@
 	&--main__container {
 		display: flex;
 		flex-direction: column;
+		max-height: 600px;
+		&:hover {
+			box-shadow: 0px 0px 9px -3px #c4e8ef;
+			border: 1px solid #9dbec5;
+		}
+		border-radius: 4px;
+		box-shadow: 0px 0px 11px -2px #c4e8ef;
+		border: 1px solid #9dbec5;
 	}
+
+	box-shadow: 0px 0px 11px -2px #c4e8ef;
+	border: 1px solid #9dbec5;
 
 	&--list__states {
 		display: flex;
@@ -18,6 +29,11 @@
 	&--input__search-state {
 		position: relative;
 		border: transparent;
+		padding: 5px;
+		width: 150px;
+		&:focus {
+			outline: unset;
+		}
 	}
 
 	&--list__states-state {
@@ -25,13 +41,9 @@
 		display: flex;
 		align-items: baseline;
 		justify-content: space-evenly;
-		padding: 3px;
+		padding: 5px;
 		margin: 3px;
 		border-radius: 3px;
-	}
-
-	&--input__search-state:focus {
-		outline: none;
 	}
 
 	&--states-pgph-elem {
@@ -42,8 +54,8 @@
 	}
 
 	&--input__section {
-		border: 1px solid rgb(228, 219, 219);
 		display: flex;
+		padding: 5px;
 	}
 
 	&--eliminate-state-Img {
@@ -55,4 +67,45 @@
 
 .hidden {
 	display: none;
+}
+
+.selectedStates--select {
+	padding: 10px;
+	border: none;
+	height: 300px;
+	&:focus {
+		outline: none;
+	}
+}
+.selectedStates--select option {
+	&:hover {
+		background-color: rgb(192, 191, 191);
+
+		&:checked {
+			background-color: rgb(192, 191, 191);
+		}
+	}
+}
+
+.slectedStates--dropDown-arrowImg {
+	width: 9px;
+	height: 10px;
+	margin: 6px;
+	align-self: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: rgb(241, 238, 238);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb:vertical {
+	background: rgb(165, 165, 165);
+	border-radius: 10px;
 }
