@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import xImgage from '../../images/xImage.png';
+import PropTypes from 'prop-types';
 
 class ListSelectedStates extends React.Component {
 	render() {
@@ -24,3 +25,8 @@ class ListSelectedStates extends React.Component {
 }
 
 export default ListSelectedStates;
+
+ListSelectedStates.defaultProps = {
+	selectedStatesList: PropTypes.arrayOf(PropTypes.string).isRequired,
+	handleElimnateSelectedState: PropTypes.func.isRequired
+};

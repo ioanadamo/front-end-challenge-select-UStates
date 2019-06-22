@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import { format } from 'util';
+import PropTypes from 'prop-types';
 
 class Select extends React.Component {
 	render() {
@@ -17,6 +17,7 @@ class Select extends React.Component {
 				<select
 					className={classNameSelect + ' select__element'}
 					multiple
+					size={60}
 					onChange={handleSelectState}
 					name="selectStates"
 				>
@@ -36,3 +37,10 @@ class Select extends React.Component {
 }
 
 export default Select;
+
+Select.defaultProps = {
+	classNameSelect: PropTypes.string.isRequired,
+	inputValueFilterState: PropTypes.string.isRequired,
+	states: PropTypes.arrayOf(PropTypes.string).isRequired,
+	handleSelectState: PropTypes.func.isRequired
+};

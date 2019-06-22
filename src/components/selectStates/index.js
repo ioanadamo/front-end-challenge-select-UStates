@@ -4,6 +4,7 @@ import dropDownImg from '../../images/triangle-down-512.png';
 import InputFilterStates from '../filterInputStates/index';
 import ListSelectedStates from '../listSelectedStates/index';
 import Select from '../select/index';
+import PropTypes from 'prop-types';
 
 class SelectStates extends React.Component {
 	constructor(props) {
@@ -57,3 +58,14 @@ class SelectStates extends React.Component {
 }
 
 export default SelectStates;
+
+InputFilterStates.defaultProps = {
+	inputValueFilterState: PropTypes.string.isRequired,
+	selectedStatesList: PropTypes.arrayOf(PropTypes.string).isRequired,
+	handleOpenListStates: PropTypes.func.isRequired,
+	handleInputFilterState: PropTypes.func.isRequired,
+	handleElimnateSelectedState: PropTypes.func.isRequired,
+	classNameSelect: PropTypes.string.isRequired,
+	states: PropTypes.arrayOf(PropTypes.string).isRequired,
+	handleSelectState: PropTypes.func.isRequired
+};

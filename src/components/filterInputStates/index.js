@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.scss';
+import PropTypes from 'prop-types';
 
 class InputFilterStates extends React.Component {
 	render() {
@@ -27,3 +28,10 @@ class InputFilterStates extends React.Component {
 }
 
 export default InputFilterStates;
+
+InputFilterStates.defaultProps = {
+	inputValueFilterState: PropTypes.string.isRequired,
+	selectedStatesList: PropTypes.arrayOf(PropTypes.string).isRequired,
+	handleOpenListStates: PropTypes.func.isRequired,
+	handleInputFilterState: PropTypes.func.isRequired
+};
