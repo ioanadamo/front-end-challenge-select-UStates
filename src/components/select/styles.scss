@@ -1,0 +1,19 @@
+.select__element {
+	padding: 10px 0px 10px 10px;
+	border: none;
+	height: 300px;
+	&:focus {
+		outline: none;
+	}
+	width: 100%;
+}
+
+.select__element option {
+	&:hover {
+		background-color: rgb(231, 231, 231);
+	}
+
+	&:checked {
+		background-color: rgb(240, 235, 235);
+	}
+}

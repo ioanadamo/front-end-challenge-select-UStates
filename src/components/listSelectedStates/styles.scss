@@ -1,0 +1,38 @@
+.listSelectedStates {
+	&--list__states {
+		display: flex;
+		padding: 0px;
+		list-style: none;
+		margin: 0px;
+		z-index: 5;
+		flex-wrap: wrap;
+		max-width: 300px;
+		justify-content: space-between;
+	}
+
+	&--list__states-state {
+		background-color: rgb(238, 225, 225);
+		display: flex;
+		align-items: baseline;
+		justify-content: space-evenly;
+		padding: 5px;
+		margin: 3px;
+		border-radius: 3px;
+	}
+
+	&--states-pgph-elem {
+		margin: 0px 5px 0px 0px;
+		font-size: 13px;
+		text-align: center;
+		align-self: center;
+	}
+
+	&--eliminate-state-Img {
+		width: 8px;
+		height: 8px;
+		align-self: center;
+	}
+}
+.hidden {
+	display: none;
+}
