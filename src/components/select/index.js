@@ -1,59 +1,69 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable react/jsx-no-comment-textnodes */
+import React, { PureComponent } from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 
-class Select extends React.Component {
-	render() {
-		let {
-			classNameSelect,
-			inputValueFilterState,
-			states,
-			handleSelectState
-		} = this.props;
+class Select extends PureComponent {
+  render() {
+    const {
+      classNameSelect,
+      inputValueFilterState,
+      states,
+      handleSelectState,
+    } = this.props;
 
-		return (
-			<form className="from__select" action="">
-				<label htmlFor="selectStates" />
-				<select
-					className={classNameSelect + ' select__element'}
-					multiple
-					size={60}
-					onChange={handleSelectState}
-					name="selectStates"
-				>
-					{Object.values(states)
-						.filter(item =>
-							item.toUpperCase().includes(inputValueFilterState.toUpperCase())
-						)
+    return (
+      <form className="from__select" action="">
+        <label htmlFor="selectStates">
+          <select
+            className={`${classNameSelect} select__element`}
+            multiple
+            size={60}
+            onChange={handleSelectState}
+            name="selectStates"
+            id="selectStates"
+          >
+            {Object.values(states)
+              .filter(item =>
+                item.name
+                  .toUpperCase()
+                  .includes(inputValueFilterState.toUpperCase()),
+              )
 
-						.map((state, ind) => (
-							<option className="select__option" key={ind} value={state}>
-								{state}
-							</option>
-						))}
-					<option
-						className={
-							Object.values(states).find(item =>
-								item.toUpperCase().includes(inputValueFilterState.toUpperCase())
-							) === undefined
-								? ''
-								: 'hidden'
-						}
-						value="Unexisting State"
-					>
-						Unexisting State
-					</option>
-				</select>
-			</form>
-		);
-	}
+              .map(state => (
+                <option
+                  className="select__option"
+                  key={state.id}
+                  value={state.name}
+                >
+                  {state.name}
+                </option>
+              ))}
+            <option
+              className={
+                Object.values(states).find(item =>
+                  item.name
+                    .toUpperCase()
+                    .includes(inputValueFilterState.toUpperCase()),
+                ) === undefined
+                  ? ''
+                  : 'hidden'
+              }
+              value="Unexisting State"
+            >
+              Unexisting State
+            </option>
+          </select>
+        </label>
+      </form>
+    );
+  }
 }
-
-export default Select;
-
-Select.defaultProps = {
-	classNameSelect: PropTypes.string.isRequired,
-	inputValueFilterState: PropTypes.string.isRequired,
-	states: PropTypes.arrayOf(PropTypes.string).isRequired,
-	handleSelectState: PropTypes.func.isRequired
+Select.propTypes = {
+  classNameSelect: PropTypes.string.isRequired,
+  inputValueFilterState: PropTypes.string.isRequired,
+  states: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleSelectState: PropTypes.func.isRequired,
 };
+export default Select;
