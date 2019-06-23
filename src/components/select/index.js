@@ -25,11 +25,24 @@ class Select extends React.Component {
 						.filter(item =>
 							item.toUpperCase().includes(inputValueFilterState.toUpperCase())
 						)
+
 						.map((state, ind) => (
 							<option className="select__option" key={ind} value={state}>
 								{state}
 							</option>
 						))}
+					<option
+						className={
+							Object.values(states).find(item =>
+								item.toUpperCase().includes(inputValueFilterState.toUpperCase())
+							) === undefined
+								? ''
+								: 'hidden'
+						}
+						value="Unexisting State"
+					>
+						Unexisting State
+					</option>
 				</select>
 			</form>
 		);
