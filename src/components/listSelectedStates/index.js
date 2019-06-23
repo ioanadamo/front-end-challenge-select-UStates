@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.scss';
 import xImgage from '../../images/xImage.png';
 import PropTypes from 'prop-types';
+import Button from '../button/index';
 
 class ListSelectedStates extends React.Component {
 	render() {
@@ -11,11 +12,12 @@ class ListSelectedStates extends React.Component {
 				{selectedStatesList.map((state, index) => (
 					<li key={index} className={'listSelectedStates--list__states-state'}>
 						<p className="listSelectedStates--states-pgph-elem">{state}</p>
-						<img
-							className={'listSelectedStates--eliminate-state-Img'}
-							src={xImgage}
-							alt="eliminate state"
-							onClick={handleElimnateSelectedState}
+						<Button
+							classButton="listSelectedStates--button__eliminateState"
+							classImg="listSelectedStates--eliminate-state-Img"
+							srcImg={xImgage}
+							altImg="eliminate state"
+							handleOnClick={handleElimnateSelectedState}
 						/>
 					</li>
 				))}

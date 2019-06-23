@@ -32,6 +32,10 @@
 	align-self: center;
 	background-position: center;
 	background-size: cover;
+	outline: none;
+	position: absolute;
+	right: -3px;
+	bottom: -6.2px;
 }
 
 ::-webkit-scrollbar {
@@ -49,4 +53,14 @@
 
 .hidden {
 	display: none;
+}
+
+.button__dropDownStates {
+	background: none;
+	border: none;
+	outline: none;
+	width: 10px;
+	height: 10px;
+	align-self: center;
+	position: relative;
 }

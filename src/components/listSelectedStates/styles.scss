@@ -15,7 +15,7 @@
 		display: flex;
 		align-items: baseline;
 		justify-content: space-evenly;
-		padding: 5px;
+		padding: 4px 7px 4px 7px;
 		margin: 3px;
 		border-radius: 3px;
 	}
@@ -30,9 +30,21 @@
 	&--eliminate-state-Img {
 		width: 8px;
 		height: 8px;
-		align-self: center;
+		position: absolute;
+		bottom: 1px;
+		right: 1px;
 	}
 }
 .hidden {
 	display: none;
+}
+
+.listSelectedStates--button__eliminateState {
+	background: none;
+	border: none;
+	outline: none;
+	width: 10px;
+	height: 10px;
+	align-self: center;
+	position: relative;
 }

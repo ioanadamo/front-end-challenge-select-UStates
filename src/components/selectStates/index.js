@@ -5,6 +5,7 @@ import InputFilterStates from '../filterInputStates/index';
 import ListSelectedStates from '../listSelectedStates/index';
 import Select from '../select/index';
 import PropTypes from 'prop-types';
+import Button from '../button/index';
 
 class SelectStates extends React.Component {
 	constructor(props) {
@@ -38,11 +39,12 @@ class SelectStates extends React.Component {
 							selectedStatesList={selectedStatesList}
 							inputValueFilterState={inputValueFilterState}
 						/>
-						<img
-							className="slectedStates--dropDown-arrowImg"
-							src={dropDownImg}
-							alt="drop down traingle"
-							onClick={handleOpenListStates}
+						<Button
+							classButton="button__dropDownStates"
+							classImg="slectedStates--dropDown-arrowImg"
+							srcImg={dropDownImg}
+							altImg="drop down traingle"
+							handleOnClick={handleOpenListStates}
 						/>
 					</div>
 					<Select
