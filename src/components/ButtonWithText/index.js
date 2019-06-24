@@ -8,13 +8,9 @@ class ButtonWithText extends PureComponent {
   }
 
   render() {
-    const { text, handleButtonTextCLick, classNameButtonText } = this.props;
+    const { text, handleButtonTextCLick } = this.props;
     return (
-      <button
-        className={classNameButtonText}
-        onClick={handleButtonTextCLick}
-        type="button"
-      >
+      <button onClick={handleButtonTextCLick} type="button">
         {text}
       </button>
     );
@@ -23,7 +19,6 @@ class ButtonWithText extends PureComponent {
 
 ButtonWithText.propTypes = {
   text: PropTypes.string.isRequired,
-  classNameButtonText: PropTypes.string.isRequired,
   handleButtonTextCLick: PropTypes.func.isRequired,
 };
 

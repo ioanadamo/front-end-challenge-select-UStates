@@ -16,7 +16,7 @@ class SelectStates extends PureComponent {
 
   render() {
     const {
-      classNameSelect,
+      statusSelect,
       inputValueFilterState,
       states,
       selectedStatesList,
@@ -25,7 +25,6 @@ class SelectStates extends PureComponent {
       handleOpenListStates,
       handleInputFilterState,
       handleBtnELiminateAllSelectedStates,
-      classNameSelectedState,
     } = this.props;
 
     return (
@@ -35,7 +34,6 @@ class SelectStates extends PureComponent {
             <ListSelectedStates
               handleElimnateSelectedState={handleElimnateSelectedState}
               selectedStatesList={selectedStatesList}
-              classNameSelectedState={classNameSelectedState}
             />
             <InputFilterStates
               handleOpenListStates={handleOpenListStates}
@@ -51,17 +49,28 @@ class SelectStates extends PureComponent {
               handleOnClick={handleOpenListStates}
             />
           </div>
-          <ButtonWithText
-            handleButtonTextCLick={handleBtnELiminateAllSelectedStates}
-            text="Deselect all the states"
-            classNameButtonText={selectedStatesList.length ? '' : 'hidden'}
-          />
-          <Select
-            handleSelectState={handleSelectState}
-            states={states}
-            classNameSelect={classNameSelect}
-            inputValueFilterState={inputValueFilterState}
-          />
+          {selectedStatesList.length ? (
+            <ButtonWithText
+              handleButtonTextCLick={handleBtnELiminateAllSelectedStates}
+              text="Deselect all the states"
+            />
+          ) : (
+            ''
+          )}
+
+          {statusSelect === 'open' ||
+          inputValueFilterState ||
+          selectedStatesList.length ? (
+            <Select
+              handleSelectState={handleSelectState}
+              states={states}
+              statusSelect={statusSelect}
+              inputValueFilterState={inputValueFilterState}
+              selectedStatesList={selectedStatesList}
+            />
+          ) : (
+            ''
+          )}
         </main>
       </Fragment>
     );
@@ -73,11 +82,10 @@ SelectStates.propTypes = {
   handleOpenListStates: PropTypes.func.isRequired,
   handleInputFilterState: PropTypes.func.isRequired,
   handleElimnateSelectedState: PropTypes.func.isRequired,
-  classNameSelect: PropTypes.string.isRequired,
+  statusSelect: PropTypes.string.isRequired,
   states: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleSelectState: PropTypes.func.isRequired,
   handleBtnELiminateAllSelectedStates: PropTypes.func.isRequired,
-  classNameSelectedState: PropTypes.string.isRequired,
 };
 
 export default SelectStates;

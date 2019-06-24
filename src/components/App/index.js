@@ -8,10 +8,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       inputValueFilterState: '',
-      classNameSelect: 'hidden',
-      classNameSelectedState: '',
+      statusSelect: 'closed',
       selectedStatesList: [],
-      states: {},
+      states: [],
       isFetching: false,
     };
   }
@@ -30,48 +29,56 @@ class App extends React.Component {
   };
 
   handleSelectState = event => {
-    const { value, key } = event.target;
+    const { value, options } = event.target;
+    const idTarget = options[options.selectedIndex].id;
     this.setState(prevState => {
       return {
         selectedStatesList: prevState.selectedStatesList
           .filter(item => item.name !== value)
-          .concat({ name: value, id: key }),
-        classNameSelectedState: '',
+          .concat({ name: value, id: idTarget }),
       };
     });
   };
 
   handleInputFilterState = e => {
     const { value } = e.currentTarget;
-
     this.setState({
       inputValueFilterState: value,
-      classNameSelect: '',
     });
   };
 
-  handleElimnateSelectedState = e => {
-    e.currentTarget.parentElement.className += ' hidden';
+  handleElimnateSelectedState = id => {
+    const { selectedStatesList } = this.state;
+    const notEliminatedStates = selectedStatesList.filter(
+      state => state.id !== id,
+    );
+
+    this.setState({
+      selectedStatesList: notEliminatedStates,
+    });
   };
 
   handleOpenListStates = () => {
     this.setState(prevState => {
       return {
-        classNameSelect: prevState.classNameSelect === 'hidden' ? '' : 'hidden',
+        statusSelect: prevState.statusSelect === 'closed' ? 'open' : 'closed',
       };
     });
   };
 
   handleBtnELiminateAllSelectedStates = () => {
-    this.setState({
-      classNameSelectedState: 'hidden ',
-      selectedStatesList: [],
+    this.setState(prevState => {
+      return {
+        selectedStatesList: prevState.selectedStatesList.length
+          ? []
+          : prevState.selectedStatesList,
+      };
     });
   };
 
   render() {
     const {
-      classNameSelect,
+      statusSelect,
       inputValueFilterState,
       states,
       selectedStatesList,
@@ -96,7 +103,7 @@ class App extends React.Component {
               handleInputFilterState={handleInputFilterState}
               states={states}
               selectedStatesList={selectedStatesList}
-              classNameSelect={classNameSelect}
+              statusSelect={statusSelect}
               inputValueFilterState={inputValueFilterState}
               classNameSelectedState={classNameSelectedState}
               handleBtnELiminateAllSelectedStates={
