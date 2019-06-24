@@ -1,6 +1,6 @@
 import React from 'react';
 import fetchStatesData from '../../services/getStates';
-import SelectStates from '../selectStates/index';
+import SelectStates from '../SelectStates/index';
 import './styles.scss';
 
 class App extends React.Component {
@@ -9,6 +9,7 @@ class App extends React.Component {
     this.state = {
       inputValueFilterState: '',
       classNameSelect: 'hidden',
+      classNameSelectedState: '',
       selectedStatesList: [],
       states: {},
       isFetching: false,
@@ -35,6 +36,7 @@ class App extends React.Component {
         selectedStatesList: prevState.selectedStatesList
           .filter(item => item.name !== value)
           .concat({ name: value, id: key }),
+        classNameSelectedState: '',
       };
     });
   };
@@ -60,6 +62,13 @@ class App extends React.Component {
     });
   };
 
+  handleBtnELiminateAllSelectedStates = () => {
+    this.setState({
+      classNameSelectedState: 'hidden ',
+      selectedStatesList: [],
+    });
+  };
+
   render() {
     const {
       classNameSelect,
@@ -67,12 +76,14 @@ class App extends React.Component {
       states,
       selectedStatesList,
       isFetching,
+      classNameSelectedState,
     } = this.state;
     const {
       handleSelectState,
       handleElimnateSelectedState,
       handleOpenListStates,
       handleInputFilterState,
+      handleBtnELiminateAllSelectedStates,
     } = this;
     return (
       <React.Fragment>
@@ -87,6 +98,10 @@ class App extends React.Component {
               selectedStatesList={selectedStatesList}
               classNameSelect={classNameSelect}
               inputValueFilterState={inputValueFilterState}
+              classNameSelectedState={classNameSelectedState}
+              handleBtnELiminateAllSelectedStates={
+                handleBtnELiminateAllSelectedStates
+              }
             />
           ) : (
             <p>Loading data ...</p>

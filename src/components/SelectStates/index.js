@@ -2,10 +2,11 @@ import React, { PureComponent, Fragment } from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 import dropDownImg from '../../images/triangle-down-512.png';
-import InputFilterStates from '../filterInputStates/index';
-import ListSelectedStates from '../listSelectedStates/index';
-import Select from '../select/index';
-import Button from '../button/index';
+import InputFilterStates from '../FilterInputStates/index';
+import ListSelectedStates from '../ListSelectedStates/index';
+import Select from '../Select/index';
+import ButtonWithImg from '../ButtonWithImg/index';
+import ButtonWithText from '../ButtonWithText';
 
 class SelectStates extends PureComponent {
   constructor(props) {
@@ -23,6 +24,8 @@ class SelectStates extends PureComponent {
       handleElimnateSelectedState,
       handleOpenListStates,
       handleInputFilterState,
+      handleBtnELiminateAllSelectedStates,
+      classNameSelectedState,
     } = this.props;
 
     return (
@@ -32,6 +35,7 @@ class SelectStates extends PureComponent {
             <ListSelectedStates
               handleElimnateSelectedState={handleElimnateSelectedState}
               selectedStatesList={selectedStatesList}
+              classNameSelectedState={classNameSelectedState}
             />
             <InputFilterStates
               handleOpenListStates={handleOpenListStates}
@@ -39,7 +43,7 @@ class SelectStates extends PureComponent {
               selectedStatesList={selectedStatesList}
               inputValueFilterState={inputValueFilterState}
             />
-            <Button
+            <ButtonWithImg
               classButton="button__dropDownStates"
               classImg="slectedStates--dropDown-arrowImg"
               srcImg={dropDownImg}
@@ -47,6 +51,11 @@ class SelectStates extends PureComponent {
               handleOnClick={handleOpenListStates}
             />
           </div>
+          <ButtonWithText
+            handleButtonTextCLick={handleBtnELiminateAllSelectedStates}
+            text="Deselect all the states"
+            classNameButtonText={selectedStatesList.length ? '' : 'hidden'}
+          />
           <Select
             handleSelectState={handleSelectState}
             states={states}
@@ -67,6 +76,8 @@ SelectStates.propTypes = {
   classNameSelect: PropTypes.string.isRequired,
   states: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleSelectState: PropTypes.func.isRequired,
+  handleBtnELiminateAllSelectedStates: PropTypes.func.isRequired,
+  classNameSelectedState: PropTypes.string.isRequired,
 };
 
 export default SelectStates;

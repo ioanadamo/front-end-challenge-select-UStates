@@ -1,12 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Button extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+class ButtonWithImg extends PureComponent {
   render() {
     const { classButton, handleOnClick, classImg, srcImg, altImg } = this.props;
     return (
@@ -16,7 +11,7 @@ class Button extends React.Component {
     );
   }
 }
-Button.propTypes = {
+ButtonWithImg.propTypes = {
   classButton: PropTypes.string.isRequired,
   classImg: PropTypes.string.isRequired,
   srcImg: PropTypes.string.isRequired,
@@ -24,4 +19,4 @@ Button.propTypes = {
   handleOnClick: PropTypes.func.isRequired,
 };
 
-export default Button;
+export default ButtonWithImg;
