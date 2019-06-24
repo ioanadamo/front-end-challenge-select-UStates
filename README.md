@@ -1,5 +1,5 @@
 
-## Stelect UStates 
+##### Stelect UStates 
 
 This app will allow you to search a state from all the 60 United States, also select one or multiple of them, and deselect them. 
 
@@ -14,24 +14,24 @@ The list of the states is being provided by the data in this API : https://www.m
 # The app structure looks like this:
 
 ```
-app.js
-app.css
 `-_src
     |-components
-        |-filterInputStates
-        |-listSelectedStates
-        |-select
-        |-selectedStates
+        |-App
+        |-Button
+        |-FilterInputStates
+        |-ListSelectedStates
+        |-Select
+        |-SelectedStates
     |-services
     |-images
 ```
 
 Each file has a `index.js` file and a `styles.scss` file.
 
-## Starting 🚀
+## Starting 
 _These instructions will allow you to obtain a copy of the project on your local machine for development and testing purposes._
 1. You need to install [Node 10.16.0 & npm 6.9.0](https://nodejs.org/es/download/).
-2. Clone the repository: `$ git clone https://github.com/Adalab/f-online-pokemon-cterrasid`. You can also Fork the project so you'll have it on your GitHub profile.
+2. Clone the repository: `$ https://github.com/ioanadamo/front-end-challenge-select-UStates.git`. You can also Fork the project so you'll have it on your GitHub profile.
 3. Install dependencies with `$ npm install`.
 4. To launch the project and see it in the browser, run `$ npm start`.
 
@@ -42,6 +42,17 @@ _These instructions will allow you to obtain a copy of the project on your local
 - [react-dom 16.8.6](https://www.npmjs.com/package/react-dom)
 - [react-scripts 3.0.1](https://www.npmjs.com/package/react-scripts)
 
-## Author ✒️
-- Ioana Daniela Moldovan - [ioanadamo](https://www.linkedin.com/ioanadamo/)
+
+### Development dependencies
+- [eslint-config-airbnb 17.1.0](https://www.npmjs.com/package/eslint-config-airbnb)
+- [eslint-config-prettier 4.1.0](https://www.npmjs.com/package/eslint-config-prettier)
+- [eslint-plugin-import 2.16.0](https://www.npmjs.com/package/eslint-plugin-import)
+- [eslint-plugin-jsx-a11y 6.2.1](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+- [eslint-plugin-prettier 3.1.0](https://www.npmjs.com/package/eslint-plugin-prettier)
+- [eslint-plugin-react 7.12.4](https://www.npmjs.com/package/eslint-plugin-react)
+- [pre-commit 1.2.2](https://www.npmjs.com/package/pre-commit)
+- [prettier 1.16.4](https://www.npmjs.com/package/prettier)
+
+## Author 
+- Ioana Daniela Moldovan - [ioanadamo](https://www.linkedin.com/in/ioanadamo/)
 
