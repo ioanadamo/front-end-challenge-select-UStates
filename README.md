@@ -1,6 +1,6 @@
 # Stelect UStates
 
-This app will allow you to search a state from all the 60 United States, also select one or multiple of them, and deselect them.
+This app will allow you to search a state from all the 51 United States, also select one or multiple of them, and deselect them.
 
 ## The main functionalities are:
 
@@ -15,7 +15,7 @@ The list of the states is being provided by the data in this API : https://www.m
 #3 The app structure looks like this:
 
 ```
-`-_src
+-_src
     |-components
         |-App
         |-ButtonWithImg
