@@ -1,50 +1,41 @@
+@import '../../scss/variables.scss';
+@import '../../scss/mixings.scss';
+
 .listSelectedStates {
-	&--list__states {
-		display: flex;
-		padding: 0px;
-		list-style: none;
-		margin: 0px;
-		z-index: 5;
-		flex-wrap: wrap;
-		max-width: 300px;
-		justify-content: space-between;
-	}
+  &--list__states {
+    @include flexContainer(flex, unset, wrap, space-between, unset);
+    z-index: 5;
+    max-width: 450px;
+  }
 
-	&--list__states-state {
-		background-color: rgb(238, 225, 225);
-		display: flex;
-		align-items: baseline;
-		justify-content: space-evenly;
-		padding: 4px 7px 4px 7px;
-		margin: 3px;
-		border-radius: 3px;
-	}
+  &--list__states-state {
+    background-color: $medium-light-grey;
+    @include flexContainer(flex, unset, unset, space-evenly, baseline);
+    padding: 4px 7px 4px 7px;
+    margin: 3px;
+    border-radius: 3px;
+  }
 
-	&--states-pgph-elem {
-		margin: 0px 5px 0px 0px;
-		font-size: 13px;
-		text-align: center;
-		align-self: center;
-	}
+  &--states-pgph-elem {
+    margin: 0px 5px 0px 0px;
+    font-size: 13px;
+    text-align: center;
+    align-self: center;
+  }
 
-	&--eliminate-state-Img {
-		width: 8px;
-		height: 8px;
-		position: absolute;
-		bottom: 1px;
-		right: 1px;
-	}
-}
-.hidden {
-	display: none;
+  &--eliminate-state-Img {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    @include boxSize(8px, 8px);
+  }
 }
 
 .listSelectedStates--button__eliminateState {
-	background: none;
-	border: none;
-	outline: none;
-	width: 10px;
-	height: 10px;
-	align-self: center;
-	position: relative;
+  background: none;
+  border: none;
+  outline: none;
+  @include boxSize(10px, 10px);
+  align-self: center;
+  position: relative;
 }

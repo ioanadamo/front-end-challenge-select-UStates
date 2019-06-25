@@ -20,7 +20,7 @@ class Select extends PureComponent {
               <select
                 className="select__element"
                 multiple
-                size={60}
+                size={51}
                 onChange={handleSelectState}
                 name="selectStates"
                 id="selectStates"

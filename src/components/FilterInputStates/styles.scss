@@ -1,16 +1,17 @@
+@import '../../scss/mixings.scss';
+
 .input__search-state {
-	height: 100%;
-	position: relative;
-	border: none;
-	padding: 5px;
-	width: 150px;
-	&:focus {
-		outline: none;
-	}
+  height: 100%;
+  position: relative;
+  border: none;
+  padding: 5px;
+
+  @include boxSize(150px, unset);
+  &:focus {
+    outline: none;
+  }
 }
 
 .form_inputSearch {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  @include flexContainer(flex, unset, unset, center, center);
 }

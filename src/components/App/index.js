@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       inputValueFilterState: '',
-      statusSelect: 'closed',
+      selectIsOpen: false,
       selectedStatesList: [],
       states: [],
       isFetching: false,
@@ -61,7 +61,7 @@ class App extends React.Component {
   handleOpenListStates = () => {
     this.setState(prevState => {
       return {
-        statusSelect: prevState.statusSelect === 'closed' ? 'open' : 'closed',
+        selectIsOpen: !prevState.selectIsOpen,
       };
     });
   };
@@ -78,7 +78,7 @@ class App extends React.Component {
 
   render() {
     const {
-      statusSelect,
+      selectIsOpen,
       inputValueFilterState,
       states,
       selectedStatesList,
@@ -102,7 +102,7 @@ class App extends React.Component {
               handleInputFilterState={handleInputFilterState}
               states={states}
               selectedStatesList={selectedStatesList}
-              statusSelect={statusSelect}
+              selectIsOpen={selectIsOpen}
               inputValueFilterState={inputValueFilterState}
               handleBtnELiminateAllSelectedStates={
                 handleBtnELiminateAllSelectedStates

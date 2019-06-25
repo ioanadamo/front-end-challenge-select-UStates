@@ -1,7 +1,10 @@
+@import '../../scss/variables.scss';
+@import '../../scss/mixings.scss';
+
 .select__element {
   padding: 10px 0px 10px 10px;
   border: none;
-  height: 300px;
+  max-height: 250px;
   &:focus {
     outline: none;
   }
@@ -10,11 +13,11 @@
 
 .select__element option {
   &:hover {
-    background-color: rgb(231, 231, 231);
+    background-color: $medium-light-grey;
   }
 
   &:checked {
-    background-color: rgb(240, 235, 235);
+    background-color: $medium-light-grey;
   }
 }
 

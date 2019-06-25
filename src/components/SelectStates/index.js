@@ -16,7 +16,7 @@ class SelectStates extends PureComponent {
 
   render() {
     const {
-      statusSelect,
+      selectIsOpen,
       inputValueFilterState,
       states,
       selectedStatesList,
@@ -56,13 +56,13 @@ class SelectStates extends PureComponent {
             />
           ) : null}
 
-          {statusSelect === 'open' ||
-          handleInputFilterState ||
+          {selectIsOpen === true ||
+          inputValueFilterState ||
           selectedStatesList.length ? (
             <Select
               handleSelectState={handleSelectState}
               states={states}
-              statusSelect={statusSelect}
+              selectIsOpen={selectIsOpen}
               inputValueFilterState={inputValueFilterState}
             />
           ) : null}
@@ -77,7 +77,7 @@ SelectStates.propTypes = {
   handleOpenListStates: PropTypes.func.isRequired,
   handleInputFilterState: PropTypes.func.isRequired,
   handleElimnateSelectedState: PropTypes.func.isRequired,
-  statusSelect: PropTypes.string.isRequired,
+  selectIsOpen: PropTypes.bool.isRequired,
   states: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleSelectState: PropTypes.func.isRequired,
   handleBtnELiminateAllSelectedStates: PropTypes.func.isRequired,
