@@ -13,7 +13,7 @@ class Select extends PureComponent {
         states.find(item =>
           item.name.toUpperCase().includes(inputValueFilterState.toUpperCase()),
         ) === undefined ? (
-          <p>Unexisting State, please introduce a valid state name</p>
+          <p className="select__unexistingState--pgph">Unexisting State</p>
         ) : (
           <form className="from__select" action="">
             <label htmlFor="selectStates">

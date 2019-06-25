@@ -54,23 +54,18 @@ class SelectStates extends PureComponent {
               handleButtonTextCLick={handleBtnELiminateAllSelectedStates}
               text="Deselect all the states"
             />
-          ) : (
-            ''
-          )}
+          ) : null}
 
           {statusSelect === 'open' ||
-          inputValueFilterState ||
+          handleInputFilterState ||
           selectedStatesList.length ? (
             <Select
               handleSelectState={handleSelectState}
               states={states}
               statusSelect={statusSelect}
               inputValueFilterState={inputValueFilterState}
-              selectedStatesList={selectedStatesList}
             />
-          ) : (
-            ''
-          )}
+          ) : null}
         </main>
       </Fragment>
     );

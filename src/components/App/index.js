@@ -83,7 +83,6 @@ class App extends React.Component {
       states,
       selectedStatesList,
       isFetching,
-      classNameSelectedState,
     } = this.state;
     const {
       handleSelectState,
@@ -105,7 +104,6 @@ class App extends React.Component {
               selectedStatesList={selectedStatesList}
               statusSelect={statusSelect}
               inputValueFilterState={inputValueFilterState}
-              classNameSelectedState={classNameSelectedState}
               handleBtnELiminateAllSelectedStates={
                 handleBtnELiminateAllSelectedStates
               }
